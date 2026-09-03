@@ -21,3 +21,30 @@ def cadastrar_cliente(cliente):
     finally:
         if conexao and conexao.is_connected():
             conexao.close()
+
+def listar_clientes():
+    iniciar()
+    conexao = None
+    try:
+        conexao = mysql.connector.connect(**DB_CONFIG)
+        cursor = conexao.cursor()
+
+        cursor.execute('''
+            SELECT * FROM Cliente
+        ''')
+        listaDB = cursor.fetchall()
+        lista = []
+
+        if len(listaDB) != 0:
+            print("\n== Lista de Clientes ==")
+            for c in listaDB:
+                lista.append(Cliente.reverter_tupla(c))
+                print(Cliente.reverter_tupla(c).exibir())
+            return lista
+        else:
+            print("Nenhum cliente cadastrado encontrado!")
+    except Exception as error:
+        print(f"Erro: {error}")
+    finally:
+        if conexao and conexao.is_connected():
+            conexao.close()
