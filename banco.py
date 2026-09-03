@@ -1,13 +1,14 @@
 import mysql.connector
+from config import DB_CONFIG
 
 def iniciar():
     conexao = None
     try:
-        conexao = mysql.connector.connect()
+        conexao = mysql.connector.connect(**DB_CONFIG)
         cursor = conexao.cursor()
 
         cursor.execute('''
-            CREATE TABLE IF NOT EXIST Cliente(
+            CREATE TABLE IF NOT EXISTS Cliente(
                 id_cliente INT PRIMARY KEY AUTO_INCREMENT,
                 nome VARCHAR(50) NOT NULL,
                 email VARCHAR(255) UNIQUE,

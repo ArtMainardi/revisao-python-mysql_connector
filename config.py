@@ -1,5 +1,5 @@
 DB_CONFIG = {
-    "hostname" : "localhost",
+    "host" : "localhost",
     "user" : "root",
     "password" : "root",
     "database" : "db_python"
