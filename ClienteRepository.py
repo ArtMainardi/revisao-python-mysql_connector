@@ -48,3 +48,25 @@ def listar_clientes():
     finally:
         if conexao and conexao.is_connected():
             conexao.close()
+
+def buscar_por_id(id):
+    iniciar()
+    conexao = None
+    try:
+        conexao = mysql.connector.connect(**DB_CONFIG)
+        cursor = conexao.cursor()
+
+        cursor.execute('''
+            SELECT * FROM Cliente WHERE id_cliente = %s
+        ''', (id,))
+        cliente = cursor.fetchone()
+
+        if cliente:
+            print(cliente)
+            return Cliente.reverter_tupla(cliente)
+        return None
+    except Exception as error:
+        print(f"ERRO: {error}")
+    finally:
+        if conexao and conexao.is_connected():
+            conexao.close()
