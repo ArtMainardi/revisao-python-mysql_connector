@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def sobre():
-    return "Página inicial"
+    return render_template("sobre.html")
 
 @app.route("/clientes")
 def listar_clientes():
