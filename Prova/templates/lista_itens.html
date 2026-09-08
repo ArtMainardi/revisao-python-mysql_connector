@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio- Prova</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('tela_inicial') }}">Tela Inicial</a>  |
+            <a href="{{ url_for('sobre') }}">Sobre</a>  |
+            <a href="{{ url_for('listar_itens') }}">Cardápio</a>
+        </nav>
+    </header>
+
+    <h1>Cardápio</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Tipo</th>
+            <th>Status</th>
+        </tr>
+        {% for i in itens %}
+        <tr>
+            <th>{{i.id}}</th>
+            <th>{{i.nome}}</th>
+            <th>{{i.preco}}</th>
+            <th>{{i.tipo}}</th>
+            <th>{% if i.status %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
