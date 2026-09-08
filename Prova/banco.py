@@ -20,8 +20,3 @@ def conectar():
         return conexao
     except Exception as error:
         print("ERRO: " + error)
-    finally:
-        if conexao and conexao.is_connected():
-            conexao.close()
-
-conectar()
