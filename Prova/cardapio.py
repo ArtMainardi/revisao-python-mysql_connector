@@ -58,7 +58,7 @@ def buscar_por_id(id):
         item = cursor.fetchone()
 
         if item:
-            i = Cliente.reverte_tupla(cliente)
+            i = Item.reverte_tupla(item)
             print(i.exibir())
             return i
         return None
