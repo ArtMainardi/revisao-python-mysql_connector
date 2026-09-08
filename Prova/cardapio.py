@@ -10,7 +10,7 @@ def cadastrar_item(item):
 
         cursor.execute('''
             INSERT INTO cardapio(nome, preco, tipo, disponivel) VALUES (%s, %s, %s, %s)
-        ''', (item.converter_tupla()))
+        ''', (item.converte_tupla()))
 
         conexao.commit()
         print("Item cadastrado com sucesso!")
@@ -35,8 +35,8 @@ def listar_itens():
         if len(listaDB) != 0:
             print("\n== Lista de Itens ==")
             for c in listaDB:
-                lista.append(Item.reverter_tupla(c))
-                print(Item.reverter_tupla(c).exibir())
+                lista.append(Item.reverte_tupla(c))
+                print(Item.reverte_tupla(c).exibir())
             return lista
         else:
             print("Nenhum item cadastrado encontrado!")
@@ -58,7 +58,7 @@ def buscar_por_id(id):
         item = cursor.fetchone()
 
         if item:
-            i = Cliente.reverter_tupla(cliente)
+            i = Cliente.reverte_tupla(cliente)
             print(i.exibir())
             return i
         return None
