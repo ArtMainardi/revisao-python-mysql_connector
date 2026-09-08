@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PythonMysqlFlask- Lista de Clientes</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+        </tr>
+        {% for c in clientes %}
+        <tr>
+            <th>{{c.id}}</th>
+            <th>{{c.nome}}</th>
+            <th>{{c.email}}</th>
+            <th>{{c.telefone}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

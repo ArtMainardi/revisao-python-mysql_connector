@@ -1,4 +1,6 @@
 from flask import *
+from ClienteRepository import *
+lista = listar_clientes()
 
 app = Flask(__name__)
 
@@ -8,7 +10,7 @@ def sobre():
 
 @app.route("/clientes")
 def listar_clientes():
-    return "Lista de clientes aqui"
+    return render_template("lista_clientes.html", clientes=lista)
 
 @app.route("/cliente/<int:id>")
 def buscar_cliente(id):
