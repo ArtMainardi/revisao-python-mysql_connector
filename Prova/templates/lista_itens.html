@@ -21,14 +21,16 @@
             <th>Preço</th>
             <th>Tipo</th>
             <th>Status</th>
+            <th>Detalhes</th>
         </tr>
         {% for i in itens %}
         <tr>
-            <th>{{i.id}}</th>
-            <th>{{i.nome}}</th>
-            <th>{{i.preco}}</th>
-            <th>{{i.tipo}}</th>
-            <th>{% if i.status %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</th>
+            <td>{{i.id}}</td>
+            <td>{{i.nome}}</td>
+            <td>{{i.preco}}</td>
+            <td>{{i.tipo}}</td>
+            <td>{% if i.status %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</td>
+            <td><a href="{{ url_for('detalhes', id=i.id) }}">=></a></td>
         </tr>
         {% endfor %}
     </table>

@@ -15,9 +15,10 @@ def sobre():
 def listar_itens():
     return render_template("lista_itens.html", itens=lista)
 
-@app.route("/cliente/<int:id>")
-def buscar_cliente(id):
-    return f"Mostrando cliente com o ID {id}"
+@app.route("/itens/<int:id>")
+def detalhes(id):
+    i = buscar_por_id(id)
+    return render_template("detalhes.html", item=i)
 
 if __name__ == "__main__":
     app.run(debug=True)
