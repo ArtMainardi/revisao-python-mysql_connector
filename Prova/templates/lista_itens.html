@@ -29,7 +29,7 @@
             <td>{{i.nome}}</td>
             <td>{{i.preco}}</td>
             <td>{{i.tipo}}</td>
-            <td>{% if i.status %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</td>
+            <td>{% if i.disponivel %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</td>
             <td><a href="{{ url_for('detalhes', id=i.id) }}">=></a></td>
         </tr>
         {% endfor %}

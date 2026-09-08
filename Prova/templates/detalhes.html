@@ -19,7 +19,7 @@
         <li>Nome: {{ item.nome }}</li>
         <li>Preço: R${{item.preco}}</li>
         <li>Tipo: {{item.tipo}}</li>
-        <li>Status: {{item.disponivel}}</li>
+        <li>Status: {% if item.disponivel %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</li>
     </ul>
 </body>
 </html>
