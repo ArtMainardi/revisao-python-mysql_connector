@@ -17,5 +17,5 @@ class Item:
     @staticmethod
     def reverte_tupla(tupla):
         item = Item(tupla[1], tupla[2], tupla[3], tupla[4])
-        item.id = tupla[1]
+        item.id = tupla[0]
         return item
