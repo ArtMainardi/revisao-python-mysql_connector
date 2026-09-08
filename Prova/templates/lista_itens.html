@@ -14,6 +14,7 @@
     </header>
 
     <h1>Cardápio</h1>
+    <span>Total de itens: {{ itens | length() }}</span>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -27,7 +28,7 @@
         <tr>
             <td>{{i.id}}</td>
             <td>{{i.nome}}</td>
-            <td>{{i.preco}}</td>
+            <td>{{"%.2f"|format(i.preco)}}</td>
             <td>{{i.tipo}}</td>
             <td>{% if i.disponivel %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</td>
             <td><a href="{{ url_for('detalhes', id=i.id) }}">=></a></td>

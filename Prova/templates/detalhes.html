@@ -17,7 +17,7 @@
     <ul>
         <li>ID: {{ item.id }}</li>
         <li>Nome: {{ item.nome }}</li>
-        <li>Preço: R${{item.preco}}</li>
+        <li>Preço: R${{ "%.2f"|format(item.preco) }}</li>
         <li>Tipo: {{item.tipo}}</li>
         <li>Status: {% if item.disponivel %}{{"Disponível"}} {% else %}{{"Esgotado"}} {% endif %}</li>
     </ul>
